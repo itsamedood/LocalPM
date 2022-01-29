@@ -1,0 +1,4 @@
+--class-path ./src
+--main Manager
+--library console.hx
+--neko .n
