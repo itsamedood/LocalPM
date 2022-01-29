@@ -5,7 +5,7 @@
 > ### Download the `default.n` file and save it wherever you want. It is recommended that you save it in a folder starting with a `.` as that will make it hidden by default.
 > ### Open `~/.zshrc` and add the following line:
 > ```zsh
-> alias pm="cd ~/.password-manager && neko default.n $1 $2 $3 $4 $5 $6 $7 $8 $9"
+> alias pm="cd path-to-dir-you-saved-default.n-in && neko default.n $1 $2 $3 $4 $5 $6 $7 $8 $9"
 > ```
 > ### Now run this command:
 > ```
