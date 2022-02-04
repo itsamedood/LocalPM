@@ -1,9 +1,8 @@
 # **LocalPM**
 ### Local Password Manager
 > # **Installation**
-<<<<<<< HEAD
-> ## Install the file `Lpm` from the [releases](https://github.com/itsamedood/LocalPM/releases).
->
+> ## Install the file `Lpm` from the [releases](https://github.com/itsamedood/LocalPM/releases). Now follow the steps below depending on your OS.
+> ---
 > # **Windows**
 > ### Oops! This program doesn't work on Windows... yet!
 > ---
@@ -14,16 +13,6 @@
 > ```zsh
 > # Assuming you saved your file in `~/Documents`
 > alias lpm="~/Documents/Lpm $1 $2 $3 $4 $5 $6 $7 $8 $9"
-=======
-> ### Install [NekoVM](https://nekovm.org/download/), as this is what you need to run the `.n` file.
-> ## \***NOTE: This part only works on Linux and MacOS as of right now, but if you can get it to work on Windows, let me know how so I can update this. Sorry for the inconvenience!**
-> ### Download the `default.n` file and save it wherever you want. It is recommended that you save it in a folder starting with a `.` as that will make it hidden by default.
-> ### Open `~/.zshrc` and add the following line:
-> ```zsh
-> alias pm="cd path-to-dir-you-saved-default.n-in && neko default.n $1 $2 $3 $4 $5 $6 $7 $8 $9"
-> ```
-> ### Now run this command:
->>>>>>> c2bb299dcccf78adffb9fd9d1d96697edddb20b6
 > ```
 > ### Run the following command:
 > ```txt
