@@ -1,4 +1,5 @@
+# --debug
 --class-path ./src
---main Manager
+--main Lpm
 --library console.hx
---neko .n
+--cpp ./out

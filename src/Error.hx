@@ -1,6 +1,7 @@
 package;
 
 import Console;
+import Lpm;
 
 class Error
 {
@@ -10,7 +11,7 @@ class Error
 		Console.error('<b,gray>$message<//>');
 
 		if (logOutput)
-			Sys.command('cd ./logs && echo "[${Date.now();}]\n$message" > ${Date.now().toString().split(" ")[0]}.log');
+			Sys.command('cd /home/${Lpm.username}/.lpm/logs && echo "[${Date.now();}]\n$message" > ${Date.now().toString().split(" ")[0]}.log');
 
 		Sys.exit(1);
 	}

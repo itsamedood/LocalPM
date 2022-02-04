@@ -1,4 +1,5 @@
 /bin
 /logs
+/out
 *.DS_Store
-*.n
+invis

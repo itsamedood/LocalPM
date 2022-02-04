@@ -1,6 +1,7 @@
 package;
 
 import Error;
+import Lpm;
 import Success;
 import haxe.Exception;
 import haxe.crypto.Base64;
@@ -25,27 +26,27 @@ final class Converter
 		dataArray.push(usernameEncoded);
 		dataArray.push(passwordEncoded);
 
-		final contents:String = File.getContent("bin/PW.bin");
+		final contents:String = File.getContent('/home/${Lpm.username}/.lpm/lpm.bin');
 
 		try
 		{
 			if (contents.length < 1)
-				File.saveContent("bin/PW.bin", '${dataArray.join('$seperator');}\n');
+				File.saveContent('/home/${Lpm.username}/.lpm/lpm.bin', '${dataArray.join('$seperator');}\n');
 			else
-				File.saveContent("bin/PW.bin", '$contents${dataArray.join('$seperator');}\n');
+				File.saveContent('/home/${Lpm.username}/.lpm/lpm.bin', '$contents${dataArray.join('$seperator');}\n');
 
 			if (!silent)
 				new Success("Successfully saved data!");
 		}
 		catch (e:Exception)
-			new Error('Failed to write to PW.bin: $e', true);
+			new Error('Failed to write to lpm.bin: $e', true);
 	}
 
 	public static function getData(parent:String, noFormat:Bool = false):String
 	{
 		var data:String = "";
 
-		final contents:String = File.getContent("bin/PW.bin");
+		final contents:String = File.getContent('/home/${Lpm.username}/.lpm/lpm.bin');
 		final lfSplit:Array<String> = contents.split("\n");
 
 		for (l in lfSplit)
@@ -78,7 +79,7 @@ final class Converter
 	{
 		var dataToRemove:String = "";
 
-		final contents:String = File.getContent("./bin/PW.bin");
+		final contents:String = File.getContent('/home/${Lpm.username}/.lpm/lpm.bin');
 		final lfSplit:Array<String> = contents.split("\n");
 
 		for (l in lfSplit)
@@ -107,19 +108,19 @@ final class Converter
 
 		try
 		{
-			File.saveContent("./bin/PW.bin", newLines.join("\n"));
+			File.saveContent('/home/${Lpm.username}/.lpm/lpm.bin', newLines.join("\n"));
 			if (!silent)
 				new Success('Successfully removed "$parent" and all it\'s data!');
 		}
 		catch (e:Exception)
-			new Error('Failed to save new content to PW.bin: $e', true);
+			new Error('Failed to save new content to lpm.bin: $e', true);
 	}
 
 	public static function checkExistanceOfData(parent:String):Bool
 	{
 		var exists:Bool = false;
 
-		final contents:String = File.getContent("bin/PW.bin");
+		final contents:String = File.getContent('/home/${Lpm.username}/.lpm/lpm.bin');
 		final lfSplit:Array<String> = contents.split("\n");
 
 		for (l in lfSplit)
@@ -127,9 +128,11 @@ final class Converter
 			final seperatorSplit:Array<String> = l.split(seperator);
 
 			if (seperatorSplit[0] == "")
-				new Error('$parent not found.');
-
-			if (decodeData(seperatorSplit[0]) == parent)
+			{
+				exists = false;
+				break;
+			}
+			else if (decodeData(seperatorSplit[0]) == parent)
 			{
 				exists = true;
 				break;
@@ -145,7 +148,7 @@ final class Converter
 	{
 		var piece:Null<String> = "";
 
-		final contents:String = File.getContent("./bin/PW.bin");
+		final contents:String = File.getContent('/home/${Lpm.username}/.lpm/lpm.bin');
 		final lfSplit:Array<String> = contents.split("\n");
 
 		for (l in lfSplit)
