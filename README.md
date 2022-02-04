@@ -34,4 +34,4 @@
 > ```
 > ### Now you're good to go! Run `lpm help` for a list of commands and more information!
 > ---
-> ## \* **NOTE:** If you get an error saying `Permission denied.`, you will need to cd into the directory `Lpm` is in and run: `chmod +x Lpm`.
+> ## \* **NOTE:** (For Mac & Linux) If you get an error saying `Permission denied.`, you will need to cd into the directory `Lpm` is in and run: `chmod +x Lpm`.
